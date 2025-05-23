@@ -1,4 +1,4 @@
-"use client"
+'use client';
 
 import type React from "react"
 
@@ -14,7 +14,7 @@ import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert"
 import { Loader2, AlertCircle, FileUp, Check, X, TableIcon, FileText, ChevronDown, ChevronUp } from "lucide-react"
 import { useToast } from "@/hooks/use-toast"
 import Papa from "papaparse"
-import { Tabs, TabsContent, TabsItem, TabsList } from "@/components/ui/tabs"
+import { Tabs, TabsContent, TabsList } from "@/components/ui/tabs"
 import { Badge } from "@/components/ui/badge"
 
 interface ImportDataMapperProps {
@@ -422,13 +422,13 @@ export function ImportDataMapper({ onImportComplete, itemId, onCancel, batchMode
     <div className="space-y-6">
       <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
         <TabsList className="grid w-full grid-cols-3 mb-4">
-          <TabsItem value="file">File Selection</TabsItem>
-          <TabsItem value="mapping" disabled={!file}>
+          <TabsContent value="file">File Selection</TabsContent>
+          <TabsContent value="mapping" disabled={!file}>
             Column Mapping
-          </TabsItem>
-          <TabsItem value="analysis" disabled={!file}>
+          </TabsContent>
+          <TabsContent value="analysis" disabled={!file}>
             Analysis Setup
-          </TabsItem>
+          </TabsContent>
         </TabsList>
 
         <TabsContent value="file" className="space-y-4">

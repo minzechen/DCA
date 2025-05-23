@@ -1,0 +1,146 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 98%; /* Off-White */
+    --foreground: 0 0% 15%; /* Slightly Lighter Dark Grey */
+    --card: 0 0% 8%; /* Slightly Lighter Very Dark Grey */
+    --card-foreground: 0 0% 95%; /* Off-White */
+    --popover: 0 0% 95%; /* Lighter Grey */
+    --popover-foreground: 0 0% 15%; /* Slightly Lighter Dark Grey */
+    --primary: 220 80% 55%; /* Slightly Lighter Blue */
+    --primary-foreground: 0 0% 5%; /* Very Dark Grey */
+    --secondary: 140 70% 55%; /* Slightly Darker Green */
+    --secondary-foreground: 0 0% 5%; /* Very Dark Grey */
+    --muted: 0 0% 85%; /* Lighter Grey */
+    --muted-foreground: 0 0% 25%; /* Slightly Lighter Dark Grey */
+    --accent: 260 70% 55%; /* Slightly Darker Purple */
+    --accent-foreground: 0 0% 5%; /* Very Dark Grey */
+    --destructive: 0 84.2% 60.2%; /* Keep original for errors */
+    --destructive-foreground: 210 40% 98%; /* Keep original for errors */
+    --border: 0 0% 100%; /* White for decoration */
+    --input: 0 0% 100%; /* White for decoration */
+    --ring: 0 0% 80%; /* Lighter Grey */
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 0 0% 10%; /* Dark Grey */
+    --foreground: 0 0% 90%; /* Light Grey */
+    --card: 0 0% 8%; /* Slightly Lighter Very Dark Grey */
+    --card-foreground: 0 0% 95%; /* Off-White */
+    --popover: 0 0% 15%; /* Slightly Lighter Dark Grey */
+    --popover-foreground: 0 0% 85%; /* Lighter Grey */
+    --primary: 220 80% 65%; /* Slightly Darker Lighter Blue */
+    --primary-foreground: 0 0% 10%; /* Dark Grey */
+    --secondary: 140 70% 45%; /* Slightly Lighter Darker Green */
+    --secondary-foreground: 0 0% 10%; /* Dark Grey */
+    --muted: 0 0% 15%; /* Slightly Lighter Dark Grey */
+    --muted-foreground: 0 0% 85%; /* Lighter Grey */
+    --accent: 260 70% 45%; /* Slightly Lighter Darker Purple */
+    --accent-foreground: 0 0% 10%; /* Dark Grey */
+    --destructive: 0 62.8% 30.6%; /* Keep original for errors */
+    --destructive-foreground: 210 40% 98%; /* Keep original for errors */
+    --border: 0 0% 90%; /* Very Light Grey for decoration */
+    --input: 0 0% 90%; /* Very Light Grey for decoration */
+    --ring: 0 0% 95%; /* Off-White */
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Custom animations */
+@keyframes pulse-border {
+  0%,
+  100% {
+    border-color: rgba(59, 130, 246, 0.5);
+  }
+  50% {
+    border-color: rgba(59, 130, 246, 1);
+  }
+}
+
+.animate-pulse-border {
+  animation: pulse-border 2s infinite;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.05);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 0, 0, 0.3);
+}
+
+.dark ::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.dark ::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+/* Card hover effects */
+.card-hover-effect {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card-hover-effect:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+}
+
+/* Mind map node animations */
+.mind-map-node {
+  transition: all 0.3s ease;
+}
+
+.mind-map-node:hover {
+  filter: brightness(1.1);
+  transform: scale(1.05);
+}
+
+/* Connection lines */
+.connection-line {
+  stroke-dasharray: 5;
+  animation: dash 30s linear infinite;
+}
+
+@keyframes dash {
+  to {
+    stroke-dashoffset: 1000;
+  }
+}
+
+/* Gradient text */
+.gradient-text {
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  background-image: linear-gradient(to right, #3b82f6, #8b5cf6);
+}
